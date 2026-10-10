@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block tite %}Create - Netflix{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+    <h4 class="text-dark mb-4">Create Movie</h4>
+
+    <form action="/movies" method="post" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>  
+            <input type="text" name="title" id="title" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>  
+            <select name="category" id="category" class="form-select">
+                <option value="">Choose category</option>
+                <option value="Action">Action</option>
+                <option value="Dramma">Dramma</option>
+                <option value="Horror">Horror</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="release_year" class="form-label">Release Year</label>  
+            <input type="number" name="release_year" id="release_year" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>  
+            <input type="number" name="rating" id="rating" class="form-control" min="0" max="10" step="0.1" placeholder="0.0">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>  
+            <textarea name="description" id="description" class="form-control" rows="7"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="poster" class="form-label">Poster</label>  
+            <input type="file" name="poster" id="poster" class="form-control">
+        </div>
+
+
+
+        <input type="submit" value="+ Add Movie" class="btn btn-primary">
+        <a href="/movies" class="text-decoration-none text-muted ms-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
+<!-- for = id -->
+<!-- post = name -->

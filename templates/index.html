@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block tite %}Netflix{% endblock %}
+
+{% block main %}
+<div class="container py-5">
+
+    <h4 class="text-dark mb-4">Featured Movies</h4>
+    {% if not movies %}
+        <div class="bg-white text-center py-4 shadow rounded">
+            <h5>No featured movies yet!</h5>
+            <p class="text-muted">Add your first movie to get started.</p>
+            <a href="/movies/create" class="btn btn-primary">+ Add Movies</a>
+        </div>
+    {% else %}
+       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-3">
+            {% for movie in movies %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='uploads/' + movie['poster']) }}" alt="" class="card-img-top" style="height: 160px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie["title"] }}</h5>
+                        <p class="card-text">
+                            {{ movie["category"] }} . 
+                            {{ movie["release_year"] }} . 
+                            {{ movie["rating"] }}
+                        </p>
+                        <p class="text-muted">
+                            {{ movie["description"] }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+       </div>
+    {% endif %}
+</div>
+{% endblock %}
