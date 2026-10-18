@@ -1,4 +1,5 @@
 # Netflix Flask CRUD application
+# Search feature development
 from flask import Flask, render_template, request, redirect
 import sqlite3
 import os
